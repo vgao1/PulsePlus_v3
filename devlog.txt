@@ -2,3 +2,6 @@ victoriaG -- 2021-05-25 21:52
 	-upload design.pdf 
 	-update README.md
 	-create directories based on repo structure guidelines
+
+victoriaG -- 2021-05-25 08:55
+	-upload updated design doc (design.pdf)
