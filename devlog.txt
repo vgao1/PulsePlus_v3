@@ -1,7 +1,11 @@
-victoriaG -- 2021-05-25 21:52
-	-upload design.pdf 
-	-update README.md
-	-create directories based on repo structure guidelines
-
 victoriaG -- 2021-05-25 08:55
-	-upload updated design doc (design.pdf)
+	- upload updated design doc (design.pdf)
+
+victoriaG -- 2021-05-25 21:52
+	- upload design.pdf 
+	- update README.md
+	- create directories based on repo structure guidelines
+
+pakL -- 2021-05-28 9:56
+	- Create api.py
+		- add get_category(id) that gets 5 questions from a category given a category id
