@@ -9,3 +9,4 @@ victoriaG -- 2021-05-25 21:52
 pakL -- 2021-05-28 9:56
 	- Create api.py
 		- add get_category(id) that gets 5 questions from a category given a category id
+	- Fix the clone link in README

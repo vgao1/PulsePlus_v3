@@ -15,7 +15,7 @@ Have you ever wanted to play a Jeopardy game with specific question categories b
 
 ## Launch Codes:
 1. Clone this repo:
-`git clone https://github.com/pak-plau/PulsePlus_v3.git`
+`git clone https://github.com/vgao1/PulsePlus_v3.git`
 2. Go to the folder containing the app: `cd PulsePlus_v3`
 3. Install the required modules: `pip install -r requirements.txt`
 4. Make and store the required API key according to the readme in the keys folder.
