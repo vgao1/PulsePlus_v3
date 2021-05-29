@@ -4,11 +4,184 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jeopardy Game</title>
+    <!-- Link to CSS file-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 
 <body>
+    <!-- Jeopardy Image -->
+    <img src="{{ url_for('static', filename='jeopardy.jpg')}}" />
 
+    <form action="/setup_cards" method="post" class="setup">
+        <div class="setup_question">
+            <h2>Question Category:</h2>
+
+            <!--Entertainment category-->
+            <div class="section">
+                <!--header: if clicked on, expand to show Entertainment radio buttons -->
+                <button type="button" class="collapsible">Entertainment
+                    <svg id="Entertainment-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                    <svg id="Entertainment-up" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                        class="bi bi-caret-up-fill hide" viewBox="0 0 16 16">
+                        <path
+                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                    </svg>
+                </button>
+                <!--radio buttons -->
+                <div class="content hide">
+                    <input type="radio" id="category8" name="category" value="16" required>
+                    <label for="category8"> Board Games </label><br>
+                    <input type="radio" id="category2" name="category" value="10" required>
+                    <label for="category2"> Books </label><br>
+                    <input type="radio" id="category24" name="category" value="32" required>
+                    <label for="category24"> Cartoon & Animations </label><br>
+                    <input type="radio" id="category21" name="category" value="29" required>
+                    <label for="category21"> Comics </label><br>
+                    <input type="radio" id="category3" name="category" value="11" required>
+                    <label for="category3"> Film</label><br>
+                    <input type="radio" id="category23" name="category" value="31" required>
+                    <label for="category23"> Japanese Anime & Manga</label><br>
+                    <input type="radio" id="category4" name="category" value="12" required>
+                    <label for="category4"> Music </label><br>
+                    <input type="radio" id="category5" name="category" value="13" required>
+                    <label for="category5"> Musicals & Theatres </label><br>
+                    <input type="radio" id="category6" name="category" value="14" required>
+                    <label for="category6"> Television </label><br>
+                    <input type="radio" id="category7" name="category" value="15" required>
+                    <label for="category7"> Video Games </label><br>
+                </div>
+            </div>
+
+            <!-- Math & Science Category-->
+            <div class="section">
+                <!--header: if clicked on, expand to show Entertainment radio buttons -->
+                <button type="button" class="collapsible"> Math & Science
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                        class="bi bi-caret-down-fill" id="Math & Science-down" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                        class="bi bi-caret-up-fill hide" id="Math & Science-up" viewBox="0 0 16 16">
+                        <path
+                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                    </svg>
+                </button>
+                <!--radio buttons -->
+                <div class="content hide">
+                    <input type="radio" id="category10" name="category" value="18" required>
+                    <label for="category10"> Computers </label><br>
+                    <input type="radio" id="category22" name="category" value="30" required>
+                    <label for="category22"> Gadgets </label><br>
+                    <input type="radio" id="category11" name="category" value="19" required>
+                    <label for="category11"> Mathematics </label><br>
+                    <input type="radio" id="category9" name="category" value="17" required>
+                    <label for="category9"> Science & Nature </label><br>
+                </div>
+            </div>
+            <!-- Other radio buttons not under a heading-->
+            <div>
+                <input type="radio" id="category19" name="category" value="27" required>
+                <label for="category19"> Animals </label><br>
+                <input type="radio" id="category17" name="category" value="25" required>
+                <label for="category17"> Art </label><br>
+                <input type="radio" id="category18" name="category" value="26" required>
+                <label for="category18"> Celebrities </label><br>
+                <input type="radio" id="category1" name="category" value="9" required>
+                <label for="category1"> General Knowledge </label><br>
+                <input type="radio" id="category14" name="category" value="22" required>
+                <label for="category14"> Geography </label><br>
+                <input type="radio" id="category15" name="category" value="23" required>
+                <label for="category15"> History </label><br>
+                <input type="radio" id="category12" name="category" value="20" required>
+                <label for="category12"> Mythology </label><br>
+                <input type="radio" id="category16" name="category" value="24" required>
+                <label for="category16"> Politics </label><br>
+                <input type="radio" id="category13" name="category" value="21" required>
+                <label for="category13"> Sports </label><br>
+                <input type="radio" id="category20" name="category" value="28" required>
+                <label for="category20"> Vehicles </label><br>
+                <br>
+            </div>
+            <hr>
+            <h2>Scoring Rules:</h2>
+            <div class="section">
+                <!-- Default score option-->
+                <button type="button" class="collapsible">
+                    <input type="radio" id="default" name="score_rule" value="default" required>
+                    Default
+                    <span class="checkmark"></span>
+                    <svg id="Default-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                    <svg id="Default-up" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                        class="bi bi-caret-up-fill hide" viewBox="0 0 16 16">
+                        <path
+                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                    </svg>
+                </button>
+                <!-- Default score description-->
+                <div id="default_text" class="content hide">
+                    <ul>
+                        <li>Getting questions right gives points based on difficulty. Questions range from 100 points
+                            (easy) to 500 points (hard).</li>
+                        <li>No penalty for wrong answers.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Customized score option-->
+            <div class="section">
+                <button type="button" class="collapsible">
+                    <input type="radio" id="customize" name="score_rule" value="customized" required>
+                    Customized
+                    <svg id="Customized-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                    <svg id="Customized-up" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                        class="bi bi-caret-up-fill hide" viewBox="0 0 16 16">
+                        <path
+                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                    </svg>
+                </button>
+                <div id="customize_text" class="content hide">
+                    <!-- Customized score description, deduction input field-->
+                    <ul>
+                        <li>Penalty for wrong answers: <input type="number" id="deduct" name="deduct" size="4" min="1" value="1">
+                            point(s). <br> (Default deduction is 1 point)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <!-- Add team names input field-->
+            <h2>Teams</h2>
+            <input type="text" id="team_name" name="team_name" required>
+            <span id="addBtn">Add</span>
+            <br>
+            <br>
+            <ul id="list_teams">
+            </ul>
+            <br>
+            <input type="text" id="team_names" name="team_names" class="hide">
+            <!-- Start Game button-->
+            <input id="setup-submit" type="submit" value="Start Game">
+            <br>
+            <br>
+        </div>
+
+    </form>
+    <!-- link to Javascript file-->
     <script type="text/javascript" src="{{ url_for('static', filename='js/events.js') }}"></script>
 </body>
+
 </html>
