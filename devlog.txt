@@ -16,7 +16,8 @@ victoriaG -- 2021-05-29 13:38
 	- Display descriptions on home.html when a user selects a radio button for score rule options. 
 	If the customized score rule option is selected, a number input field (# of points to 
 	deduct for wrong answers) will pop up.
-	- Create an input text field that requires the user to add at least two team names.
+	- Create a text input field that requires the user to add at least two team names. 
+	On home.html, users can add team name with "Add" button and delete team names with "X" button
 	- Add descriptions of HTML form elements (data type, info that is stored) in __init__.py
 	- Update main.css with styles for home.html
 	
