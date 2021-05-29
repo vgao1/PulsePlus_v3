@@ -12,13 +12,13 @@
     <!-- Jeopardy Image -->
     <img src="{{ url_for('static', filename='jeopardy.jpg')}}" />
 
-    <form action="/setup_cards" method="post" class="setup">
+    <form action="/setup_cards" method="post" class="setup" onsubmit="return validate()">
         <div class="setup_question">
             <h2>Question Category:</h2>
-
+            <p>Please select 5 question categories!</p>
             <!--Entertainment category-->
             <div class="section">
-                <!--header: if clicked on, expand to show Entertainment radio buttons -->
+                <!--header: if clicked on, expand to show Entertainment checkbox buttons -->
                 <button type="button" class="collapsible">Entertainment
                     <svg id="Entertainment-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
                         class="bi bi-caret-down-fill" viewBox="0 0 16 16">
@@ -31,34 +31,34 @@
                             d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
                     </svg>
                 </button>
-                <!--radio buttons -->
+                <!--checkbox buttons -->
                 <div class="content hide">
-                    <input type="radio" id="category8" name="category" value="16" required>
+                    <input type="checkbox" id="category8" name="category" value="16">
                     <label for="category8"> Board Games </label><br>
-                    <input type="radio" id="category2" name="category" value="10" required>
+                    <input type="checkbox" id="category2" name="category" value="10">
                     <label for="category2"> Books </label><br>
-                    <input type="radio" id="category24" name="category" value="32" required>
+                    <input type="checkbox" id="category24" name="category" value="32">
                     <label for="category24"> Cartoon & Animations </label><br>
-                    <input type="radio" id="category21" name="category" value="29" required>
+                    <input type="checkbox" id="category21" name="category" value="29">
                     <label for="category21"> Comics </label><br>
-                    <input type="radio" id="category3" name="category" value="11" required>
+                    <input type="checkbox" id="category3" name="category" value="11">
                     <label for="category3"> Film</label><br>
-                    <input type="radio" id="category23" name="category" value="31" required>
+                    <input type="checkbox" id="category23" name="category" value="31">
                     <label for="category23"> Japanese Anime & Manga</label><br>
-                    <input type="radio" id="category4" name="category" value="12" required>
+                    <input type="checkbox" id="category4" name="category" value="12">
                     <label for="category4"> Music </label><br>
-                    <input type="radio" id="category5" name="category" value="13" required>
+                    <input type="checkbox" id="category5" name="category" value="13">
                     <label for="category5"> Musicals & Theatres </label><br>
-                    <input type="radio" id="category6" name="category" value="14" required>
+                    <input type="checkbox" id="category6" name="category" value="14">
                     <label for="category6"> Television </label><br>
-                    <input type="radio" id="category7" name="category" value="15" required>
+                    <input type="checkbox" id="category7" name="category" value="15">
                     <label for="category7"> Video Games </label><br>
                 </div>
             </div>
 
             <!-- Math & Science Category-->
             <div class="section">
-                <!--header: if clicked on, expand to show Entertainment radio buttons -->
+                <!--header: if clicked on, expand to show Entertainment checkbox buttons -->
                 <button type="button" class="collapsible"> Math & Science
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
                         class="bi bi-caret-down-fill" id="Math & Science-down" viewBox="0 0 16 16">
@@ -71,48 +71,49 @@
                             d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
                     </svg>
                 </button>
-                <!--radio buttons -->
+                <!--checkbox buttons -->
                 <div class="content hide">
-                    <input type="radio" id="category10" name="category" value="18" required>
+                    <input type="checkbox" id="category10" name="category" value="18">
                     <label for="category10"> Computers </label><br>
-                    <input type="radio" id="category22" name="category" value="30" required>
+                    <input type="checkbox" id="category22" name="category" value="30">
                     <label for="category22"> Gadgets </label><br>
-                    <input type="radio" id="category11" name="category" value="19" required>
+                    <input type="checkbox" id="category11" name="category" value="19">
                     <label for="category11"> Mathematics </label><br>
-                    <input type="radio" id="category9" name="category" value="17" required>
+                    <input type="checkbox" id="category9" name="category" value="17">
                     <label for="category9"> Science & Nature </label><br>
                 </div>
             </div>
-            <!-- Other radio buttons not under a heading-->
+            <!-- Other checkbox buttons not under a heading-->
             <div>
-                <input type="radio" id="category19" name="category" value="27" required>
+                <input type="checkbox" id="category19" name="category" value="27">
                 <label for="category19"> Animals </label><br>
-                <input type="radio" id="category17" name="category" value="25" required>
+                <input type="checkbox" id="category17" name="category" value="25">
                 <label for="category17"> Art </label><br>
-                <input type="radio" id="category18" name="category" value="26" required>
+                <input type="checkbox" id="category18" name="category" value="26">
                 <label for="category18"> Celebrities </label><br>
-                <input type="radio" id="category1" name="category" value="9" required>
+                <input type="checkbox" id="category1" name="category" value="9">
                 <label for="category1"> General Knowledge </label><br>
-                <input type="radio" id="category14" name="category" value="22" required>
+                <input type="checkbox" id="category14" name="category" value="22">
                 <label for="category14"> Geography </label><br>
-                <input type="radio" id="category15" name="category" value="23" required>
+                <input type="checkbox" id="category15" name="category" value="23">
                 <label for="category15"> History </label><br>
-                <input type="radio" id="category12" name="category" value="20" required>
+                <input type="checkbox" id="category12" name="category" value="20">
                 <label for="category12"> Mythology </label><br>
-                <input type="radio" id="category16" name="category" value="24" required>
+                <input type="checkbox" id="category16" name="category" value="24">
                 <label for="category16"> Politics </label><br>
-                <input type="radio" id="category13" name="category" value="21" required>
+                <input type="checkbox" id="category13" name="category" value="21">
                 <label for="category13"> Sports </label><br>
-                <input type="radio" id="category20" name="category" value="28" required>
+                <input type="checkbox" id="category20" name="category" value="28">
                 <label for="category20"> Vehicles </label><br>
                 <br>
             </div>
             <hr>
             <h2>Scoring Rules:</h2>
+            <p>Please select a score rule option!</p>
             <div class="section">
                 <!-- Default score option-->
                 <button type="button" class="collapsible">
-                    <input type="radio" id="default" name="score_rule" value="default" required>
+                    <input type="radio" id="default" name="score_rule" value="default">
                     Default
                     <span class="checkmark"></span>
                     <svg id="Default-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
@@ -139,7 +140,7 @@
             <!-- Customized score option-->
             <div class="section">
                 <button type="button" class="collapsible">
-                    <input type="radio" id="customize" name="score_rule" value="customized" required>
+                    <input type="radio" id="customize" name="score_rule" value="customized">
                     Customized
                     <svg id="Customized-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
                         class="bi bi-caret-down-fill" viewBox="0 0 16 16">
@@ -165,7 +166,8 @@
             <hr>
             <!-- Add team names input field-->
             <h2>Teams</h2>
-            <input type="text" id="team_name" name="team_name" required>
+            <p>Please add at least 2 team names!</p>
+            <input type="text" id="team_name" name="team_name">
             <span id="addBtn">Add</span>
             <br>
             <br>
