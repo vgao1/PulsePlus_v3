@@ -1,11 +1,12 @@
 var coll = document.getElementsByClassName("collapsible");
 var team_names = "";
+var num_checked = 0; 
 var i;
 for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
         var content = this.nextElementSibling;  //div element whose class="content"
         //if content is already shown, hide content when button is clicked
-        
+
         if (content.style.display === "block") {
             content.style.display = "none";
             document.getElementById(this.innerText.trim() + "-up").classList.add("hide");
@@ -18,7 +19,6 @@ for (i = 0; i < coll.length; i++) {
             document.getElementById(this.innerText.trim() + "-down").classList.add("hide");
             document.getElementById(this.innerText.trim() + "-up").classList.remove("hide");
         }
-
     });
 }
 
@@ -42,7 +42,7 @@ add_Btn.addEventListener("click", function () {
     var inputValue = document.getElementById("team_name").value;
     var t = document.createTextNode(inputValue);
     //add background color and space between displayed team names
-    li.setAttribute("style","background-color:rgb(240, 205, 10);margin-bottom:5px");
+    li.setAttribute("style", "background-color:rgb(240, 205, 10);margin-bottom:5px");
     li.appendChild(t);
     if (inputValue === '') {   //if the submitted team name has 0 characters
         alert("Please lengthen team name to 1 character or more (you are currently using 0 characters).");
@@ -71,11 +71,25 @@ add_Btn.addEventListener("click", function () {
     document.getElementById("team_names").value = team_names;
 });
 
-document.getElementById("setup-submit").addEventListener("click",function() {
-    if ((document.getElementById("team_names").value.split(",").length - 1)<2){
-        alert("Please add at least 2 team names!");
+function validate(){
+    num_checked = 0; 
+    for (i=0; i<document.getElementsByName("category").length; i++) {
+        if (document.getElementsByName("category")[i].checked == true) {
+            num_checked +=1;
+        }
     }
-    else {
-        document.getElementById("team_name").required = false;
+    if (num_checked != 5) {
+        alert("Please check exactly 5 question categories!");
+        return false;   
     }
-})
+    console.log(document.getElementById("default").checked == false && document.getElementById("customize").checked == false);
+    console.log((document.getElementById("team_names").value.split(",").length - 1) < 2);
+    if (document.getElementById("default").checked == false && document.getElementById("customize").checked == false){
+        alert("Please select a score rule option");
+        return false;
+    }
+    if ((document.getElementById("team_names").value.split(",").length - 1) < 2) {
+        alert("Please add at least 2 team names!"); 
+        return false;
+    } 
+};
