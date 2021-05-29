@@ -10,3 +10,13 @@ pakL -- 2021-05-28 9:56
 	- Create api.py
 		- add get_category(id) that gets 5 questions from a category given a category id
 	- Fix the clone link in README
+
+victoriaG -- 2021-05-29 13:38
+	- Create radio buttons for question category and score rule options. 
+	- Display descriptions on home.html when a user selects a radio button for score rule options. 
+	If the customized score rule option is selected, a number input field (# of points to 
+	deduct for wrong answers) will pop up.
+	- Create an input text field that requires the user to add at least two team names.
+	- Add descriptions of HTML form elements (data type, info that is stored) in __init__.py
+	- Update main.css with styles for home.html
+	
