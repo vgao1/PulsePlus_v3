@@ -18,6 +18,5 @@ Have you ever wanted to play a Jeopardy game with specific question categories b
 `git clone https://github.com/vgao1/PulsePlus_v3.git`
 2. Go to the folder containing the app: `cd PulsePlus_v3`
 3. Install the required modules: `pip install -r requirements.txt`
-4. Make and store the required API key according to the readme in the keys folder.
-5. Go into the app folder: `cd app`
-7. Run the python file: `python __init__.py`
+4. Go into the app folder: `cd app`
+5. Run the python file: `python __init__.py`
