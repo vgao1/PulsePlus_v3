@@ -1,0 +1,93 @@
+body {
+    background-color: rgb(15, 15, 99);
+}
+
+#cards {
+    font-size: 0;
+    display: block;
+    border: 5px solid black;
+    width: 1125px;
+    height: 500px;
+}
+
+.points {
+    padding: 0;
+    margin: 0;
+    border-top: 3.5px solid black;
+    border-bottom: 3.5px solid black;
+    border-left: 3.5px solid black;
+    border-right: 3.5px solid black;
+    color: white;
+    background-color: rgb(48, 48, 165);
+    width: 225px;
+    height: 100px;
+    font-weight: bold;
+    font-size: 25px;
+    float: left;
+    cursor: pointer;
+}
+
+.points:hover {
+    border-color: yellow;
+}
+
+.col {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 225px;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.col2 {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.scores {
+    background-color: white;
+    border: none;
+    margin-left: 10px;
+    padding: 10px;
+    width: 100px;
+    height: 90px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+hr {
+    height: 2px;
+    border-width: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    color: black;
+    background-color: black;
+}
+
+.score {
+    color: white;
+    background-color: rgb(48, 48, 165);
+}
+
+.plus {
+    color: green;
+    background-color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.minus {
+    color: red;
+    background-color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
