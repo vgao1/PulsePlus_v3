@@ -6,7 +6,7 @@ body {
     font-size: 0;
     display: block;
     border: 5px solid black;
-    width: 1125px;
+    width: 1000px;
     height: 500px;
 }
 
@@ -19,7 +19,7 @@ body {
     border-right: 3.5px solid black;
     color: white;
     background-color: rgb(48, 48, 165);
-    width: 225px;
+    width: 200px;
     height: 100px;
     font-weight: bold;
     font-size: 25px;
@@ -37,7 +37,7 @@ body {
     font-weight: bold;
     padding-top: 10px;
     padding-bottom: 10px;
-    width: 225px;
+    width: 200px;
     text-align: center;
     vertical-align: top;
     display: inline-block;

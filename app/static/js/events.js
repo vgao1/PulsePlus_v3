@@ -6,13 +6,32 @@ for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
         var content = this.nextElementSibling;  //div element whose class="content"
         //if content is already shown, hide content when button is clicked
-
         if (content.style.display === "block") {
             content.style.display = "none";
             document.getElementById(this.innerText.trim() + "-up").classList.add("hide");
             document.getElementById(this.innerText.trim() + "-down").classList.remove("hide");
         }
 
+        //show content
+        else {
+            content.style.display = "block";
+            document.getElementById(this.innerText.trim() + "-down").classList.add("hide");
+            document.getElementById(this.innerText.trim() + "-up").classList.remove("hide");
+        }
+    });
+}
+
+var coll1 = document.getElementsByClassName("collapsible1");
+for (i = 0; i < coll1.length; i++) {
+    coll1[i].addEventListener("click", function () {
+        var content = this.nextElementSibling;  //div element whose class="content1"
+        //if content is already shown, hide content when button is clicked
+
+        if (content.style.display !== "none") {
+            content.style.display = "none";
+            document.getElementById(this.innerText.trim() + "-up").classList.add("hide");
+            document.getElementById(this.innerText.trim() + "-down").classList.remove("hide");
+        }
         //show content
         else {
             content.style.display = "block";
@@ -82,8 +101,6 @@ function validate(){
         alert("Please check exactly 5 question categories!");
         return false;   
     }
-    console.log(document.getElementById("default").checked == false && document.getElementById("customize").checked == false);
-    console.log((document.getElementById("team_names").value.split(",").length - 1) < 2);
     if (document.getElementById("default").checked == false && document.getElementById("customize").checked == false){
         alert("Please select a score rule option");
         return false;
