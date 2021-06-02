@@ -7,7 +7,7 @@ app = Flask(__name__)
 def root():
     return render_template("home.html")
 
-#<Name of HTML form element>: (data type) <info stored> 
+#<Name of HTML form element>: (data type) <info stored>
 #team_names: (string) team names separated by commas
 #category: value of selected radio button for question category (int between 9 and 32, inclusive)
 #score_rule: value of selected radio button for score rule (default or customized)
@@ -15,10 +15,15 @@ def root():
     # for wrong answers. Default deduct is 1 point.
 @app.route("/setup_cards", methods=["GET", "POST"])
 def setup():
-    print(request.form.get("team_names")) 
-    print(request.form["category"])
+    teams = request.form.get("team_names").split(",")
+    teams.pop()
+    cats = request.form.getlist("category")
+    info = {}
+    for cat in cats:
+        info[api.get_category(int(cat))] = api.get_questions(cat)
+    print(info)
     print(request.form["score_rule"])
-    return render_template("questions.html")
+    return render_template("questions.html", teams=teams, info=info)
 
 if(__name__ == "__main__"):
     app.debug = True

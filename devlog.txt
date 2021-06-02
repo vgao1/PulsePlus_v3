@@ -2,7 +2,7 @@ victoriaG -- 2021-05-25 08:55
 	- upload updated design doc (design.pdf)
 
 victoriaG -- 2021-05-25 21:52
-	- upload design.pdf 
+	- upload design.pdf
 	- update README.md
 	- create directories based on repo structure guidelines
 
@@ -12,22 +12,28 @@ pakL -- 2021-05-28 9:56
 	- Fix the clone link in README
 
 victoriaG -- 2021-05-29 13:38
-	- Create radio buttons for question category and score rule options. 
-	- Display descriptions on home.html when a user selects a radio button for score rule options. 
-	If the customized score rule option is selected, a number input field (# of points to 
+	- Create radio buttons for question category and score rule options.
+	- Display descriptions on home.html when a user selects a radio button for score rule options.
+	If the customized score rule option is selected, a number input field (# of points to
 	deduct for wrong answers) will pop up.
-	- Create a text input field that requires the user to add at least two team names. 
+	- Create a text input field that requires the user to add at least two team names.
 	On home.html, users can add team name with "Add" button and delete team names with "X" button
 	- Add descriptions of HTML form elements (data type, info that is stored) in __init__.py
 	- Update main.css with styles for home.html
-	
+
 victoriaG -- 2021-05-29 17:20
-	- In home.html, removed the required attributes of input fields because they caused console errors and customizing 
-	pop-up messages prevented HTML form from getting submitted regardless of whether the user followed instructions. 
+	- In home.html, removed the required attributes of input fields because they caused console errors and customizing
+	pop-up messages prevented HTML form from getting submitted regardless of whether the user followed instructions.
 	Instead, I added validate() function in events.js to make sure the user selects exactly five question 			categories and one score rule option. validate() also checks that the user adds at least two team names. If those 	  conditions aren't met, alert messages pop up and the HTML form isn't submitted.
 	- Add instructions above input fields in home.html
 
 victoriaG -- 2021-06-02 10:07
-	-Create questions.html with the Jeopardy cards and team score boards drawn. 
-	-Upload board.css: contains CSS for questions.html
-	-Update __init__.py to render questions.html instead of question.html when the user submits the setup form.
+	- Create questions.html with the Jeopardy cards and team score boards drawn. 
+	- Upload board.css: contains CSS for questions.html
+	- Update __init__.py to render questions.html instead of question.html when the user submits the setup form.
+
+reneeM -- 2021-06-02 19:41
+	- Rename get_category(id) in api.py to get_questions(id) to better reflect what the method does
+	- Make new get_category(id) in api.py to return the category name from the id
+	- Update setup method in __init__.py and questions.html to render team names and question categories on the board
+	- Add .gitignore

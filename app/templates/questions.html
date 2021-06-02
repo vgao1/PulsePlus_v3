@@ -9,11 +9,9 @@
 
 <body>
     <div class="col2">
-        <div class="col">Topic 1</div>
-        <div class="col">Topic 2</div>
-        <div class="col">Topic 3</div>
-        <div class="col">Topic 4</div>
-        <div class="col">Topic 5</div>
+        {% for cat in info %}
+            <div class="col">{{ cat }}</div>
+        {% endfor %}
         <div id="cards">
             <form action="/question" method="post">
                 <input class="points" type="submit" value="100">
@@ -54,15 +52,17 @@
 
         <!-- Add jinja code here: for each team name in team_names variable processed in python file, add
         a div class="scores" block-->
-        <div class="scores">
-            Team 1
-            <hr>
-            <div class="score">0</div>   <!-- replace 0 with variable recording score-->
-            
-            <!-- update_score() will be a Python function for updating team's scores -->
-            <button class="plus" name="plus" onclick="update_score()">+</button>
-            <button class="minus" name="minus" onclick="update_score()">-</button>
-        </div>
+        {% for team in teams %}
+            <div class="scores">
+                {{ team }}
+                <hr>
+                <div class="score">0</div>   <!-- replace 0 with variable recording score-->
+
+                <!-- update_score() will be a Python function for updating team's scores -->
+                <button class="plus" name="plus" onclick="update_score()">+</button>
+                <button class="minus" name="minus" onclick="update_score()">-</button>
+            </div>
+        {% endfor %}
     </div>
     <script type="text/javascript" src="{{ url_for('static', filename='js/events.js') }}"></script>
 </body>
