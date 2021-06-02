@@ -18,7 +18,7 @@ def setup():
     print(request.form.get("team_names")) 
     print(request.form["category"])
     print(request.form["score_rule"])
-    return render_template("question.html")
+    return render_template("questions.html")
 
 if(__name__ == "__main__"):
     app.debug = True
