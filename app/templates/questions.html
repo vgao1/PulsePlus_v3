@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jeopardy Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}">
+</head>
+
+<body>
+    <div class="col2">
+        <div class="col">Topic 1</div>
+        <div class="col">Topic 2</div>
+        <div class="col">Topic 3</div>
+        <div class="col">Topic 4</div>
+        <div class="col">Topic 5</div>
+        <div id="cards">
+            <form action="/question" method="post">
+                <input class="points" type="submit" value="100">
+                <input class="points" type="submit" value="100">
+                <input class="points" type="submit" value="100">
+                <input class="points" type="submit" value="100">
+                <input class="points" type="submit" value="100">
+                <br>
+                <input class="points" type="submit" value="200">
+                <input class="points" type="submit" value="200">
+                <input class="points" type="submit" value="200">
+                <input class="points" type="submit" value="200">
+                <input class="points" type="submit" value="200">
+                <br>
+                <input class="points" type="submit" value="300">
+                <input class="points" type="submit" value="300">
+                <input class="points" type="submit" value="300">
+                <input class="points" type="submit" value="300">
+                <input class="points" type="submit" value="300">
+                <br>
+                <input class="points" type="submit" value="400">
+                <input class="points" type="submit" value="400">
+                <input class="points" type="submit" value="400">
+                <input class="points" type="submit" value="400">
+                <input class="points" type="submit" value="400">
+                <br>
+                <input class="points" type="submit" value="500">
+                <input class="points" type="submit" value="500">
+                <input class="points" type="submit" value="500">
+                <input class="points" type="submit" value="500">
+                <input class="points" type="submit" value="500">
+            </form>
+        </div>
+    </div>
+    <div class="col2">
+        <br>
+        <br>
+
+        <!-- Add jinja code here: for each team name in team_names variable processed in python file, add
+        a div class="scores" block-->
+        <div class="scores">
+            Team 1
+            <hr>
+            <div class="score">0</div>   <!-- replace 0 with variable recording score-->
+            
+            <!-- update_score() will be a Python function for updating team's scores -->
+            <button class="plus" name="plus" onclick="update_score()">+</button>
+            <button class="minus" name="minus" onclick="update_score()">-</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/events.js') }}"></script>
+</body>
+
+</html>
