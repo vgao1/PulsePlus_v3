@@ -26,3 +26,8 @@ victoriaG -- 2021-05-29 17:20
 	pop-up messages prevented HTML form from getting submitted regardless of whether the user followed instructions. 
 	Instead, I added validate() function in events.js to make sure the user selects exactly five question 			categories and one score rule option. validate() also checks that the user adds at least two team names. If those 	  conditions aren't met, alert messages pop up and the HTML form isn't submitted.
 	- Add instructions above input fields in home.html
+
+victoriaG -- 2021-06-02 10:07
+	-Create questions.html with the Jeopardy cards and team score boards drawn. 
+	-Upload board.css: contains CSS for questions.html
+	-Update __init__.py to render questions.html instead of question.html when the user submits the setup form.
