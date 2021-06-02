@@ -8,7 +8,7 @@ h1 {
     text-align: center;
 }
 
-.collapsible {
+.collapsible, .collapsible1 {
     background-color: white;
     color: white;
     background-color: rgb(15, 15, 99);
@@ -29,7 +29,13 @@ h1 {
 .content {
     display: none;
     overflow: hidden;
-    background-color: rgb(29, 29, 190);
+    background-color: rgb(48, 48, 165);
+    color: white;
+}
+
+.content1 {
+    overflow: hidden;
+    background-color: rgb(48, 48, 165);
     color: white;
 }
 
