@@ -18,12 +18,11 @@ def setup():
     teams = request.form.get("team_names").split(",")
     teams.pop()
     cats = request.form.getlist("category")
-    info = {}
+    cat_names = []
     for cat in cats:
-        info[api.get_category(int(cat))] = api.get_questions(cat)
-    print(info)
+        cat_names += [ api.get_category(int(cat)) ]
     print(request.form["score_rule"])
-    return render_template("questions.html", teams=teams, info=info)
+    return render_template("questions.html", teams=teams, cats = cat_names)
 
 if(__name__ == "__main__"):
     app.debug = True
