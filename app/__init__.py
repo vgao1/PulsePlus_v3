@@ -7,6 +7,8 @@ app = Flask(__name__)
 def root():
     return render_template("home.html")
 
+info = {}
+
 #<Name of HTML form element>: (data type) <info stored>
 #team_names: (string) team names separated by commas
 #category: value of selected radio button for question category (int between 9 and 32, inclusive)
@@ -18,11 +20,11 @@ def setup():
     teams = request.form.get("team_names").split(",")
     teams.pop()
     cats = request.form.getlist("category")
-    cat_names = []
-    for cat in cats:
-        cat_names += [ api.get_category(int(cat)) ]
+    if not info:
+        for cat in cats:
+            info[api.get_category(int(cat))] = [False] * 5
     print(request.form["score_rule"])
-    return render_template("questions.html", teams=teams, cats = cat_names)
+    return render_template("questions.html", teams=teams, info=info)
 
 if(__name__ == "__main__"):
     app.debug = True
