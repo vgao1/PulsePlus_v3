@@ -66,7 +66,8 @@ add_Btn.addEventListener("click", function () {
     if (inputValue === '') {   //if the submitted team name has 0 characters
         alert("Please lengthen team name to 1 character or more (you are currently using 0 characters).");
     }
-    if (inputValue !== '' && team_names.includes(inputValue + ",")) { //if the team name is already added
+    if (inputValue !== '' && ((team_names!='' && team_names.includes(","+inputValue + ",")) || (team_name.toString().indexOf(inputValue)==0 && team_names.includes(inputValue+",")))){
+        //if the team name is already added
         alert("This team name is already added.");
     }
     else if (inputValue !== '') {   //if the team name hasn't been added
