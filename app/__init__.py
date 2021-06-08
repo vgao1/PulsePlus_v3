@@ -80,7 +80,7 @@ def question():
 #check if the submitted answer is correct
 @app.route("/check_ans", methods=["GET", "POST"])
 def answer():
-    return render_template("questions.html", teams=list(scores.keys()), info=info, categories=json.dumps(categories), clicked=json.dumps(info))
+    return render_template("questions.html", teams=list(scores.keys()), info=info, categories=json.dumps(categories), clicked=json.dumps(info),scores=scores)
 
 
 if(__name__ == "__main__"):
