@@ -37,3 +37,16 @@ reneeM -- 2021-06-02 19:41
 	- Make new get_category(id) in api.py to return the category name from the id
 	- Update setup method in __init__.py and questions.html to render team names and question categories on the board
 	- Add .gitignore
+
+victoriaG -- 2021-06-07 20:44
+	- Add button names and question() function in __init__.py to check which card is selected.
+	- Set up global variables in __init__.py to store team names, question categories, questions corresponding to cards,
+	scores, selected team, submitted answer
+	- Use Jinja and json.dumps() to connect variables from __init__.py to questions.html's JS functions:
+		-check if a card's question has already been answered 
+		-prevent clicks on answered cards from navigating page to question.html
+	- Add HTML form elements in question.html to display multiple choice trivia questions and store
+	the team name answering the question and the submitted answer
+	- Create card.css: contains CSS for question.html
+	- Center Jeopardy board by adjusting margins, padding, float, and other attributes in board.css
+	
