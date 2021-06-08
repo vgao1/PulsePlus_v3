@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(13, 13, 139);
+}
+
+h1 {
+    color: gold;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 42px;
+}
+
+/* CSS for select options input*/
+select {
+    width: 35%;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 32.5%;
+    margin-top: 10px;
+    border: 2px solid #aaa;
+    outline: none;
+}
+
+select option:hover {
+    font-weight: bold;
+}
+
+/* CSS for next button*/
+#next {
+    width: 8%;
+    outline: none;
+    border: none;
+    background-color: white;
+    color: rgb(16, 16, 139);
+    font-weight: bold;
+    font-size: 18px;
+    height: 30px;
+    margin-left: 46%;
+    border-radius: 5px;
+}
+
+/* hide element*/
+.hide {
+    display: none;
+}
+
+#mcq {
+    display: none;
+}
+
+/*CSS for multiple choice answers*/
+.choice {
+    outline: none;
+    border: none;
+    width: 50%;
+    margin-left: 25%;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: rgb(15, 131, 185);
+}
+
+.choice:hover{
+    background-color: rgb(7, 83, 145);
+}
+
+/*CSS for submit answer button*/
+#submit_btn{
+    background-color: #ec9f05;
+    background-image: linear-gradient(315deg, #ec9f05 0%, #ff4e00 74%);
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    width: 10%;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 45%;
+}

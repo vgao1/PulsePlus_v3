@@ -9,62 +9,76 @@
 
 <body>
     <div class="col2">
+        <!-- Display selected question categories-->
         {% for cat in info %}
-            <div class="col">{{ cat }}</div>
+        <div class="col">{{ cat }}</div>
         {% endfor %}
+
+        <!-- Display Jeopardy cards-->
         <div id="cards">
             <form action="/question" method="post">
-                <input class="points" type="submit" value="100">
-                <input class="points" type="submit" value="100">
-                <input class="points" type="submit" value="100">
-                <input class="points" type="submit" value="100">
-                <input class="points" type="submit" value="100">
+                <input class="points" name="0-0" type="submit" value="100">
+                <input class="points" name="1-0" type="submit" value="100">
+                <input class="points" name="2-0" type="submit" value="100">
+                <input class="points" name="3-0" type="submit" value="100">
+                <input class="points" name="4-0" type="submit" value="100">
                 <br>
-                <input class="points" type="submit" value="200">
-                <input class="points" type="submit" value="200">
-                <input class="points" type="submit" value="200">
-                <input class="points" type="submit" value="200">
-                <input class="points" type="submit" value="200">
+                <input class="points" name="0-1" type="submit" value="200">
+                <input class="points" name="1-1" type="submit" value="200">
+                <input class="points" name="2-1" type="submit" value="200">
+                <input class="points" name="3-1" type="submit" value="200">
+                <input class="points" name="4-1" type="submit" value="200">
                 <br>
-                <input class="points" type="submit" value="300">
-                <input class="points" type="submit" value="300">
-                <input class="points" type="submit" value="300">
-                <input class="points" type="submit" value="300">
-                <input class="points" type="submit" value="300">
+                <input class="points" name="0-2" type="submit" value="300">
+                <input class="points" name="1-2" type="submit" value="300">
+                <input class="points" name="2-2" type="submit" value="300">
+                <input class="points" name="3-2" type="submit" value="300">
+                <input class="points" name="4-2" type="submit" value="300">
                 <br>
-                <input class="points" type="submit" value="400">
-                <input class="points" type="submit" value="400">
-                <input class="points" type="submit" value="400">
-                <input class="points" type="submit" value="400">
-                <input class="points" type="submit" value="400">
+                <input class="points" name="0-3" type="submit" value="400">
+                <input class="points" name="1-3" type="submit" value="400">
+                <input class="points" name="2-3" type="submit" value="400">
+                <input class="points" name="3-3" type="submit" value="400">
+                <input class="points" name="4-3" type="submit" value="400">
                 <br>
-                <input class="points" type="submit" value="500">
-                <input class="points" type="submit" value="500">
-                <input class="points" type="submit" value="500">
-                <input class="points" type="submit" value="500">
-                <input class="points" type="submit" value="500">
+                <input class="points" name="0-4" type="submit" value="500">
+                <input class="points" name="1-4" type="submit" value="500">
+                <input class="points" name="2-4" type="submit" value="500">
+                <input class="points" name="3-4" type="submit" value="500">
+                <input class="points" name="4-4" type="submit" value="500">
             </form>
         </div>
     </div>
     <div class="col2">
         <br>
-        <br>
-
-        <!-- Add jinja code here: for each team name in team_names variable processed in python file, add
-        a div class="scores" block-->
+        <!-- Display scoreboards for each team-->
+        <div class="team_heading">Teams</div>
         {% for team in teams %}
-            <div class="scores">
-                {{ team }}
-                <hr>
-                <div class="score">0</div>   <!-- replace 0 with variable recording score-->
-
-                <!-- update_score() will be a Python function for updating team's scores -->
-                <button class="plus" name="plus" onclick="update_score()">+</button>
-                <button class="minus" name="minus" onclick="update_score()">-</button>
-            </div>
+        <div class="scores">
+            {{ team }}
+            <hr>
+            <div class="score">{{ scores[team] }}</div>
+        </div>
         {% endfor %}
+
     </div>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/events.js') }}"></script>
+    <script>
+        // pass clicked and categories variables through safe filter to access its value in JS script
+        var clicked_status = {{ clicked|safe}};
+        var q_categories = {{ categories|safe}};
+        for (col = 0; col < 5; col++) {
+            for (row = 0; row < 5; row++) {
+                //If a question has already been answered, 
+                if (clicked_status[q_categories[col]][row] == true) {
+                    var no_submit_btn = document.getElementsByName(col.toString() + "-" + row.toString())[0]
+                    no_submit_btn.setAttribute("type", "button"); //change 'submit' button type to 'button' to prevent page from submitting 
+                    no_submit_btn.addEventListener("click", function () {
+                        alert("This question has already been answered!"); //display a pop-up msg
+                    })
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

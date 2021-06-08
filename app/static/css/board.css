@@ -11,6 +11,7 @@ body {
 }
 
 .points {
+    display: inline-block;
     padding: 0;
     margin: 0;
     border-top: 3.5px solid black;
@@ -23,7 +24,7 @@ body {
     height: 100px;
     font-weight: bold;
     font-size: 25px;
-    float: left;
+    float: none;
     cursor: pointer;
 }
 
@@ -32,11 +33,11 @@ body {
 }
 
 .col {
+    margin-top: 10px;
     color: white;
     font-size: 18px;
     font-weight: bold;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0px 10px 0px;
     width: 200px;
     text-align: center;
     vertical-align: top;
@@ -46,6 +47,8 @@ body {
 .col2 {
     vertical-align: top;
     display: inline-block;
+    margin-left: 50px;
+    margin-top: 25px;
 }
 
 .scores {
@@ -54,7 +57,7 @@ body {
     margin-left: 10px;
     padding: 10px;
     width: 100px;
-    height: 90px;
+    height: 60px;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
@@ -72,22 +75,16 @@ hr {
 .score {
     color: white;
     background-color: rgb(48, 48, 165);
+    margin-bottom: 0;
 }
 
-.plus {
-    color: green;
-    background-color: white;
+.team_heading {
+    width: 100px;
+    color: gold;
+    font-size: 22px;
     font-weight: bold;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.minus {
-    color: red;
-    background-color: white;
-    font-weight: bold;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: -10px;
 }

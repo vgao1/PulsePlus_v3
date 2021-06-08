@@ -4,11 +4,43 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jeopardy Game</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
 </head>
 
 <body>
-    <h1>Questions</h1>
-    <h2> {{ value }} </h2>
+    <div id="team_select">
+        <h1>Team Answering Question: </h1>
+        <!-- Selector input field for team name-->
+        <select id="selected_team" name="selected_team">
+            <option value="0">Select a team</option>
+            {% for team in teams %}
+            <option value="{{team}}">{{ team }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <!-- Next button -->
+        <button id="next" type="button">Next &rarr;</button>
+    </div>
+    <!-- Multiple Choice Question and Answer Options section -->
+    <div id="mcq">
+        <!-- Question: its text is passed through safe Jinja filter to render HTML entities as symbols on the frontend-->
+        <h1>{{ q["question"]|safe }} </h1>
+
+        <!-- For each answer choice, create a button-->
+        <form action="/check_ans" method="post">
+            <br>
+            {% for choice in choices %}
+            <button class="choice" id="{{choice}}" type="button" name="ans" value="{{choice}}" onclick="update_ans('{{choice}}')">{{choice}}</button>
+            {% endfor %}
+            <input class="hide" id="answer" name="answer" type="text" value="">
+
+            <!-- Submit button -->
+            <input id="submit_btn" type="submit" value="Submit">
+        </form>
+    </div>
+    <!-- link to Javascript file-->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/question.js') }}"></script>
 </body>
+
 </html>
