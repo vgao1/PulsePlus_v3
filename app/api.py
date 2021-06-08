@@ -39,7 +39,7 @@ def get_questions(id):
     difficulty = ["easy", "medium", "hard"]
     amount = ["2", "2", "1"]
     for i in range(3):
-        u = urllib.request.urlopen(trivia_link + "difficulty="+ difficulty[i] +"&amount=" + amount[i] + "&category=" + str(id + "&type=multiple"))
+        u = urllib.request.urlopen(trivia_link + "difficulty="+ difficulty[i] +"&amount=" + amount[i] + "&category=" + str(id) + "&type=multiple")
         info = json.loads(u.read())
         if info["response_code"] == 0:
             for j in info["results"]:
