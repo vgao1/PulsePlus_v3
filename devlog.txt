@@ -50,3 +50,5 @@ victoriaG -- 2021-06-07 20:44
 	- Create card.css: contains CSS for question.html
 	- Center Jeopardy board by adjusting margins, padding, float, and other attributes in board.css
 	
+ryanM -- 2021-06-10 9:33
+    - Add functionality for checking correct answers and scoring

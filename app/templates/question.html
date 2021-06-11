@@ -16,11 +16,11 @@
             {% for team in teams %}
             <option value="{{team}}">{{ team }}</option>
             {% endfor %}
-        </select>
+        </select>`
         <br>
         <br>
         <!-- Next button -->
-        <button id="next" type="button">Next &rarr;</button>
+        <button id="next" onclick="updateTeam()" type="button">Next &rarr;</button>
     </div>
     <!-- Multiple Choice Question and Answer Options section -->
     <div id="mcq">
@@ -33,7 +33,10 @@
             {% for choice in choices %}
             <button class="choice" id="{{choice}}" type="button" name="ans" value="{{choice}}" onclick="update_ans('{{choice}}')">{{choice}}</button>
             {% endfor %}
-            <input class="hide" id="answer" name="answer" type="text" value="">
+            <input class="hide" id="answer" name="answer" type="text" value=''>
+            <input class="hide" id="row" name="row" type="text" value= '{{ row }}'>
+            <input class="hide" id="col" name="col" type="text" value= '{{ col }}'>
+            <input class="hide" id="team" name="team" type="text" value= ''>
 
             <!-- Submit button -->
             <input id="submit_btn" type="submit" value="Submit">
@@ -41,6 +44,12 @@
     </div>
     <!-- link to Javascript file-->
     <script type="text/javascript" src="{{ url_for('static', filename='js/question.js') }}"></script>
+    <script>
+        function updateTeam() {
+            let team = document.getElementById('selected_team').value;
+            document.getElementById('team').value = team;
+        }
+    </script>
 </body>
 
 </html>

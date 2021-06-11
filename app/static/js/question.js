@@ -22,4 +22,6 @@ function update_ans(id) {
     document.getElementById(id).style.backgroundColor = "gold";
     document.getElementById(id).style.color = "black";
     console.log(ans);
+
+    document.getElementById('answer').value = id;
 }
