@@ -31,7 +31,7 @@
         <form action="/check_ans" method="post">
             <br>
             {% for choice in choices %}
-            <button class="choice" id="{{choice}}" type="button" name="ans" value="{{choice}}" onclick="update_ans('{{choice}}')">{{choice}}</button>
+            <button class="choice" id="{{choice}}" type="button" name="ans" value="{{choice}}" onclick="update_ans('{{choice}}')">{{choice|safe}}</button>
             {% endfor %}
             <input class="hide" id="answer" name="answer" type="text" value=''>
             <input class="hide" id="row" name="row" type="text" value= '{{ row }}'>
