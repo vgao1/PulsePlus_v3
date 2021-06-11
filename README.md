@@ -2,7 +2,7 @@
 ## Roster:
 * Project Manager: Victoria Gao (vgao10)
   * Front-End Development (HTML, CSS, JS, Bootstrap)
-  * Drawing Jeopardy cards with JS canvas functions
+  * Drawing Jeopardy cards and connecting HTML elements to backend files
 * Pak Ming Lau (plau10)
   * Getting trivia questions from Open Trivia API
 * Ryan Ma (rma10)
