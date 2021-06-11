@@ -52,3 +52,7 @@ victoriaG -- 2021-06-07 20:44
 	
 ryanM -- 2021-06-10 9:33
     - Add functionality for checking correct answers and scoring
+    
+victoriaG -- 2021-06-11 01:08
+	- Added CSS to make cards of answered questions fade out.
+	- Render symbols in answer choices by passing Jinja variable through safe filter.
