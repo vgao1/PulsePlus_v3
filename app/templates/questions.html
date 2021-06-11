@@ -51,6 +51,7 @@
     </div>
     <div class="col2">
         <br>
+        <br>
         <!-- Display scoreboards for each team-->
         <div class="team_heading">Teams</div>
         {% for team in teams %}
@@ -66,6 +67,7 @@
         // pass clicked and categories variables through safe filter to access its value in JS script
         var clicked_status = {{ clicked|safe}};
         var q_categories = {{ categories|safe}};
+        var all_clicked = true;
         for (col = 0; col < 5; col++) {
             for (row = 0; row < 5; row++) {
                 //If a question has already been answered, 
@@ -75,9 +77,18 @@
                     no_submit_btn.addEventListener("click", function () {
                         alert("This question has already been answered!"); //display a pop-up msg
                     })
+                    document.getElementsByName(col.toString()+"-"+row.toString())[0].setAttribute("style","opacity:0.5");
+                }
+                else {
+                    all_clicked = false;
                 }
             }
         }
+
+        // If all the Jeopardy cards have been answered, display name of winning team (new feature to add by 06/18)
+        /* if(all_clicked) {
+
+        } */
     </script>
 </body>
 
