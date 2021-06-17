@@ -5,9 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jeopardy Game</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}">
+    <style>
+        .popup .overlay {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            display: none;
+        }
+
+        .popup .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: #fff;
+            width: 450px;
+            height: 300px;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .popup .close-btn {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 30px;
+            height: 30px;
+            background: #222;
+            color: white;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .popup.active .overlay {
+            display: block;
+        }
+
+        .popup.popup.active .content {
+            transition: all 300ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
 </head>
 
 <body>
+    <div class="popup" id="winner_msg">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1 id="win_team_name">Game Over</h1>
+            <br>
+            <a id="go_back" href="/">Start a New Game</a>
+            <br>
+        </div>
+    </div>
+
+    <div class="popup" id="correct_status">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="toggleAnsPopup()">&times;</div>
+            <h1 id="right_wrong"></h1>
+        </div>
+    </div>
     <div class="col2">
         <!-- Display selected question categories-->
         {% for cat in info %}
@@ -61,12 +129,11 @@
             <div class="score">{{ scores[team] }}</div>
         </div>
         {% endfor %}
-
     </div>
     <script>
         // pass clicked and categories variables through safe filter to access its value in JS script
-        var clicked_status = {{ clicked|safe}};
-        var q_categories = {{ categories|safe}};
+        var clicked_status = {{ clicked| safe}};
+        var q_categories = {{ categories| safe}};
         var all_clicked = true;
         for (col = 0; col < 5; col++) {
             for (row = 0; row < 5; row++) {
@@ -77,7 +144,7 @@
                     no_submit_btn.addEventListener("click", function () {
                         alert("This question has already been answered!"); //display a pop-up msg
                     })
-                    document.getElementsByName(col.toString()+"-"+row.toString())[0].setAttribute("style","opacity:0.5");
+                    document.getElementsByName(col.toString() + "-" + row.toString())[0].setAttribute("style", "opacity:0.5");
                 }
                 else {
                     all_clicked = false;
@@ -85,10 +152,47 @@
             }
         }
 
+        var winning_team = {{ first_place| safe}};
+        function togglePopup() {
+            document.getElementById("winner_msg").classList.toggle("active");
+            var winner = document.createElement("p");
+            var winner_str = "";
+            if (winning_team.length > 1) {
+                winner_str = "The winners are ";
+                for (i = 0; i < winning_team.length; i++) {
+                    winner_str += "<span class='b'>" + winning_team[i] + "</span>, ";
+                }
+                winner_str = winner_str.substring(0, winner_str.length - 2);
+                winner_str = winner_str.substring(0, winner_str.lastIndexOf(",")) + " and " + winner_str.substring(winner_str.lastIndexOf(",") + 1,) + " who are tied at " + "<span class='b'> {{ scores[teams[0]] }}</span> pts";
+                winner.innerHTML = winner_str;
+            }
+            else {
+                winner.innerHTML = "The winner is <span class='b'>{{ teams[0] }}</span> with a score of <span class='b'>{{ scores[teams[0]] }}</span> pts";
+            }
+            document.getElementById("win_team_name").after(winner);
+        }
         // If all the Jeopardy cards have been answered, display name of winning team (new feature to add by 06/18)
-        /* if(all_clicked) {
 
-        } */
+        function toggleAnsPopup() {
+            document.getElementById("correct_status").classList.toggle("active");
+            document.getElementById("correct_status").getElementsByClassName("content")[0].style.height = "120px";
+            if (ans_status === "yes") {
+                document.getElementById("right_wrong").innerText = "Correct!";
+                document.getElementById("correct_status").getElementsByClassName("content")[0].style.backgroundColor = "green";
+            }
+            else {
+                document.getElementById("right_wrong").innerText = "Wrong :(";
+                document.getElementById("correct_status").getElementsByClassName("content")[0].style.backgroundColor = "red";
+            }
+            if (all_clicked && !document.getElementById("correct_status").classList.contains("active")) {
+                togglePopup();
+            }
+
+        }
+        var ans_status = {{ correct| safe}};
+        if (ans_status.length > 0) {
+            toggleAnsPopup();
+        }
     </script>
 </body>
 

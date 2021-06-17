@@ -58,11 +58,14 @@ for (j = 0; j < close.length; j++) {
 var add_Btn = document.getElementById("addBtn")
 add_Btn.addEventListener("click", function () {
     var li = document.createElement("li");
+    var team_text = document.createElement("div");
+    team_text.className = "team_txt";
     var inputValue = document.getElementById("team_name").value;
     var t = document.createTextNode(inputValue);
     //add background color and space between displayed team names
     li.setAttribute("style", "background-color:rgb(240, 205, 10);margin-bottom:5px");
-    li.appendChild(t);
+    team_text.appendChild(t);
+    li.append(team_text);
     if (inputValue === '') {   //if the submitted team name has 0 characters
         alert("Please lengthen team name to 1 character or more (you are currently using 0 characters).");
     }

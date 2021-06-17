@@ -159,3 +159,9 @@ p {
     font-weight: bold;
     text-align: center;
 }
+
+.team_txt {
+    color: black;
+    border-right: 48px solid rgb(240, 205, 10);
+    overflow: hidden;
+}

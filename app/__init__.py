@@ -58,7 +58,7 @@ def setup():
     score_rule = request.form.get('score_rule')
     if (score_rule == "customized"):
         penalty = int(request.form.get('deduct'))
-    return render_template("questions.html", teams=teams, info=info, categories=json.dumps(categories), clicked=json.dumps(info),scores=scores)
+    return render_template("questions.html", correct = json.dumps(""),teams=teams, info=info, categories=json.dumps(categories), clicked=json.dumps(info),scores=scores)
 
 #get info about the selected card: clicked on status, question, answers
 @app.route("/question", methods=["GET", "POST"])
@@ -85,6 +85,7 @@ def question():
 #check if the submitted answer is correct
 @app.route("/check_ans", methods=["GET", "POST"])
 def answer():
+    correct = "no"
     #stores the team that is answering the question
     team = request.form.get('team')
 
@@ -100,10 +101,16 @@ def answer():
     #checks if the choice was correct and awards points/deducts points based on scoring rules
     if (choice == correct_answer):
         scores[team] += (row + 1) * 100
+        correct="yes"
     elif (score_rule == 'customized'):
-        scores[team] -= penalty 
-    return render_template("questions.html", teams=list(scores.keys()), info=info, categories=json.dumps(categories), clicked=json.dumps(info),scores=scores)
-
+        scores[team] -= penalty
+    sorted_scores = {}
+    sorted_teams = sorted(scores, key=scores.get,reverse=True)
+    for team in sorted_teams:
+        sorted_scores[team] = scores[team]
+    top_teams = [team for team,score in scores.items() if float(score) == list(sorted_scores.values())[0]]
+    return render_template("questions.html", correct=json.dumps(correct),first_place = json.dumps(top_teams),teams=sorted_teams, info=info, categories=json.dumps(categories), clicked=json.dumps(info),scores=sorted_scores)
+   
 if(__name__ == "__main__"):
     app.debug = True
     app.run()

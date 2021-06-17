@@ -31,6 +31,10 @@ select option:hover {
     font-weight: bold;
 }
 
+option {
+    width: 35%;
+}
+
 /* CSS for next button*/
 #next {
     width: 8%;
