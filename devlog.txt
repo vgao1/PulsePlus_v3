@@ -56,3 +56,10 @@ ryanM -- 2021-06-10 9:33
 victoriaG -- 2021-06-11 01:08
 	- Added CSS to make cards of answered questions fade out.
 	- Render symbols in answer choices by passing Jinja variable through safe filter.
+	
+victoriaG -- 2021-06-17 15:06
+	- Added overflow: hidden property and adjusted borders to make displayed team names fit in scoreboard and HTML list. 
+	- Added a popup that shows up on questions.html after users submits an answer to a trivia question to tell them if 
+	their answer is correct/wrong.
+	- Added a Game Over popup that shows up on questions.html after all trivia questions are answered to show 
+	the name and score of winning team(s).
