@@ -20,3 +20,5 @@ Have you ever wanted to play a Jeopardy game with specific question categories b
 3. Install the required modules: `pip install -r requirements.txt`
 4. Go into the app folder: `cd app`
 5. Run the python file: `python __init__.py`
+
+## [Video Demo here](https://youtu.be/2euJ3XX6oEk)
